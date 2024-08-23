@@ -1,0 +1,7 @@
+{
+  "name": "aitomaweb",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
