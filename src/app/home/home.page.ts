@@ -3,19 +3,19 @@ import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton } from '@ionic/a
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AngularFireStorageModule } from '@angular/fire/compat/storage'
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import { environment } from 'src/environments/environment';
+// import { AngularFireModule } from '@angular/fire/compat';
+// import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+// import { AngularFireStorageModule } from '@angular/fire/compat/storage'
+// import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+// import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+// import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonButton, CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, IonButton, AngularFireDatabaseModule],
+  imports: [IonButton, CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, IonButton],
 })
 export class HomePage implements AfterViewInit {
   @ViewChild('backgroundVideo') backgroundVideo!: ElementRef<HTMLVideoElement>;

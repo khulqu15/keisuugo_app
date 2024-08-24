@@ -2,19 +2,19 @@ import { AfterViewInit, Component, ElementRef, Renderer2, ViewChild } from '@ang
 import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
 import { CommonModule } from '@angular/common';
 
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AngularFireStorageModule } from '@angular/fire/compat/storage'
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import { environment } from 'src/environments/environment';
+// import { AngularFireModule } from '@angular/fire/compat';
+// import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+// import { AngularFireStorageModule } from '@angular/fire/compat/storage'
+// import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+// import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+// import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-about',
   templateUrl: 'about.page.html',
   styleUrls: ['about.page.scss'],
   standalone: true,
-  imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, AngularFireDatabaseModule],
+  imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonContent],
 })
 
 
