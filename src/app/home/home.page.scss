@@ -1,27 +1,30 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+html {
+  scroll-behavior: smooth;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+.solution-card {
+  .solution-card-box {
+    .solution-card-image {
+      transition: all .3s ease;
+      opacity: 1;
+    }
+    .solution-card-image-hidden {
+      transition: all .3s ease;
+      visibility: hidden;
+      opacity: 0;
+    }
+    &:hover {
+      .solution-card-image {
+        width: 100%;
+        left: 0;
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+      }
+      .solution-card-image-hidden {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
 }
