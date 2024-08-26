@@ -1,0 +1,30 @@
+<ion-content [fullscreen]="true">
+  <div class="flex items-center text-base-content gap-3 justify-center bg-base-300 p-4 min-h-screen relative w-full">
+    <div class="fixed top-0 right-0 text-right w-full z-10 p-4">
+      <div class="flex w-full justify-between items-center">
+        <div>
+          <div class="mx-2 flex items-center gap-3 px-2">
+            <img src="../../assets/image/logo.png" class="w-8" alt="Aitoma">
+            <span class="text-xl">Keisuugo</span>
+          </div>
+        </div>
+        <div class="flex gap-x-6 items-center justify-center">
+          <a (click)="toggleTheme()"><span [ngClass]="{'icon-[icon-park-solid--dark-mode]': currentTheme === 'light', 'icon-[akar-icons--sun-fill]': currentTheme === 'dark', 'text-xl': true}"></span></a>
+          <div class="dropdown dropdown-end">
+            <div tabindex="0" role="button" class="icon-[akar-icons--language] text-xl"></div>
+            <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+              <li><a [ngClass]="{'bg-base-200': selectedLanguage == 1}" (click)="changeLanguage(1)">English</a></li>
+              <li><a [ngClass]="{'bg-base-200': selectedLanguage == 0}" (click)="changeLanguage(0)">Indonesia</a></li>
+              <li><a [ngClass]="{'bg-base-200': selectedLanguage == 2}" (click)="changeLanguage(2)">日本</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-lg lg:w-1/2 w-full bg-base-200 rounded-2xl shadow-2xl p-8">
+      <h1 class="m-black text-2xl">{{ vocab[0][selectedLanguage] }}</h1>
+      <h1 class="m-book mt-3">{{ vocab[1][selectedLanguage] }}</h1>
+      <button (click)="googleLogin()" class="btn bg-base-100 mt-5 w-full"><span class="icon-[flat-color-icons--google] text-xl"></span> {{ vocab[2][selectedLanguage] }}</button>
+    </div>
+  </div>
+</ion-content>

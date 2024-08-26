@@ -1,0 +1,112 @@
+<ion-content [fullscreen]="true">
+  <div class="bg-base-300 text-base-content">
+    <div class="drawer">
+      <input type="checkbox" id="navigation-bar" class="drawer-toggle" />
+      <div class="drawer-content flex flex-col">
+        <div class="navbar fixed z-10 top-0 left-0 bg-base-300/50 backdrop-blur-md w-full">
+          <div class="mx-2 flex-1 gap-3 px-2">
+            <img src="../../assets/image/logo.png" class="w-8" alt="Aitoma">
+            <span class="lg:inline-block hidden">Keisuugo</span>
+          </div>
+          <div class="lg:hidden flex-none block">
+            <ul class="menu menu-horizontal pr-4">
+              <li><a (click)="toggleTheme()"><span [ngClass]="{'icon-[icon-park-solid--dark-mode]': currentTheme === 'light', 'icon-[akar-icons--sun-fill]': currentTheme === 'dark', 'text-xl': true}"></span></a></li>
+              <li>
+                <a>
+                  <div class="dropdown dropdown-end">
+                    <div tabindex="0" role="button" class="icon-[akar-icons--language] text-xl"></div>
+                    <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                      <li><a [ngClass]="{'bg-base-200': selectedLanguage == 1}" (click)="changeLanguage(1)">English</a></li>
+                      <li><a [ngClass]="{'bg-base-200': selectedLanguage == 0}" (click)="changeLanguage(0)">Indonesia</a></li>
+                      <li><a [ngClass]="{'bg-base-200': selectedLanguage == 2}" (click)="changeLanguage(2)">日本</a></li>
+                    </ul>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <div class="dropdown dropdown-end">
+                    <div *ngIf="user != null" tabindex="0" role="button" class="w-6 h-6 rounded-full bg-blue-600 overflow-hidden">
+                      <img [src]="user.photoURL" class="w-full h-full object-cover object-center" alt="">
+                    </div>
+                    <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                      <li><a (click)="logout()" [ngClass]="{'bg-base-200': selectedLanguage == 1}">{{ menu_vocab[1][selectedLanguage] }}</a></li>
+                    </ul>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="hidden flex-none lg:block">
+            <ul class="menu menu-horizontal pr-4">
+              <!-- <li><a href="/home#solutions-content">{{ menu_vocab[0][selectedLanguage] }}</a></li> -->
+              <li><a (click)="toggleTheme()"><span [ngClass]="{'icon-[icon-park-solid--dark-mode]': currentTheme === 'light', 'icon-[akar-icons--sun-fill]': currentTheme === 'dark', 'text-xl': true}"></span></a></li>
+              <li>
+                <a>
+                  <div class="dropdown dropdown-end">
+                    <div tabindex="0" role="button" class="icon-[akar-icons--language] text-xl"></div>
+                    <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                      <li><a [ngClass]="{'bg-base-200': selectedLanguage == 1}" (click)="changeLanguage(1)">English</a></li>
+                      <li><a [ngClass]="{'bg-base-200': selectedLanguage == 0}" (click)="changeLanguage(0)">Indonesia</a></li>
+                      <li><a [ngClass]="{'bg-base-200': selectedLanguage == 2}" (click)="changeLanguage(2)">日本</a></li>
+                    </ul>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a>
+                  <div class="dropdown dropdown-end">
+                    <div *ngIf="user != null" tabindex="0" role="button" class="w-6 h-6 rounded-full bg-blue-600 overflow-hidden">
+                      <img [src]="user.photoURL" class="w-full h-full object-cover object-center" alt="">
+                    </div>
+                    <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                      <li><a (click)="logout()" [ngClass]="{'bg-base-200': selectedLanguage == 1}">{{ menu_vocab[1][selectedLanguage] }}</a></li>
+                    </ul>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="md:px-12 min-h-screen px-8 py-8 bg-base-300 pt-24">
+          <button (click)="navigatePush('/home')" class="btn bg-base-100 mb-4"><span class="icon-[akar-icons--arrow-left]"></span> {{ vocabs[0][selectedLanguage] }}</button>
+          <div class="flex justify-between items-center gap-4">
+            <select disabled required id="lang" [(ngModel)]="textDetail.lang" name="lang" class="select w-full max-w-xs">
+              <option value="id-ID">Indonesian</option>
+              <option value="en-US">English</option>
+              <option value="ja-JP">Japanese</option>
+            </select>
+          </div>
+          <div class="p-4 w-full bg-base-200 rounded-2xl mt-4">
+            <pre class="whitespace-pre-wrap">{{ textDetail.text }}</pre>
+          </div>
+        </div>
+
+        <div class="fixed bottom-0 left-0 w-full p-8">
+          <div class="w-full flex justify-end">
+            <button (click)="speak()" class="btn btn-lg bg-blue-600">
+              <span *ngIf="!is_playing" class="icon-[ion--play]"></span>
+              <span *ngIf="is_playing" class="icon-[ion--stop]"></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="md:p-12 p-8">
+          <div class="w-full border-t border-base-content/30 grid md:grid-cols-2 grid-cols-1 items-center justify-between">
+            <div class="flex gap-4 items-center p-8">
+              <img src="../../assets/image/logo.png" class="w-12" alt="Aitoma">
+              <h1 class="m-black text-3xl">Keisuugo</h1>
+            </div>
+            <div class="flex text-right gap-4 items-center justify-end p-8">
+              <h1>{{ footer[selectedLanguage] }}</h1>
+              <img src="../../assets/image/dev.png" class="w-12 inline-block" alt="Aitoma">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  </ion-content>

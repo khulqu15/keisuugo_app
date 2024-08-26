@@ -6,12 +6,19 @@ export const routes: Routes = [
     loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
   },
   {
-    path: 'about',
-    loadComponent: () => import('./about/about.page').then((m) => m.AboutPage),
+    path: '',
+    loadComponent: () => import('./login/login.page').then((m) => m.LoginPage)
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
+    path: 'create',
+    loadComponent: () => import('./text/text.page').then((m) => m.TextPage)
   },
+  {
+    path: 'edit/:uuid',
+    loadComponent: () => import('./text/text.page').then((m) => m.TextPage)
+  },
+  {
+    path: 'text/:uuid',
+    loadComponent: () => import('./detail/detail.page').then((m) => m.DetailPage)
+  }
 ];
