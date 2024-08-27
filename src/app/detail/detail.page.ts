@@ -32,6 +32,7 @@ export class DetailPage implements AfterViewInit, OnInit {
 
   menu_vocab: any = [
     {0: 'Tentang Kami', 1: 'About Us', 2: '私たちについて'},
+    {0: 'Keluar', 1: 'Logout', 2: 'ログアウト' },
   ]
 
   footer: any = {
